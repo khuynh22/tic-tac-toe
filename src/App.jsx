@@ -1,6 +1,12 @@
+import { useState } from "react";
 import Player from "./components/Player";
 import GameBoard from "./components/GameBoard";
 function App() {
+    const [activePlayer, setActivePlayer] = useState('X');
+    function handleSelectSquare() {
+        setActivePlayer((curActivePlayer) => curActivePlayer === 'X' ? 'O' : 'X');
+    }
+    
     return (
         <main>
             <div id="game-container">
@@ -10,7 +16,6 @@ function App() {
                 </ol>
                 <GameBoard />
             </div>
-            LOG
         </main>
     );
 }
